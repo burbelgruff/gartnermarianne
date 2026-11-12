@@ -1,0 +1,109 @@
+:root {
+  --text: #6b6b6b;
+  --heading: #1a1a1a;
+  --bg: #fff;
+  --bg-alt: #f5f5f5;
+  --font: "Rosarivo", Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 4rem; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+
+img { max-width: 100%; height: auto; }
+a { color: inherit; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 2rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: .75rem 1.5rem;
+  background: var(--bg);
+  border-bottom: 1px solid #e5e5e5;
+}
+.brand { margin: 0; font-weight: 600; }
+.brand span { font-weight: 400; }
+nav { display: flex; gap: 1.5rem; }
+nav a { text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+
+section { padding: 3rem 1.5rem; }
+section > *:not(.row):not(.packages) { max-width: 46rem; margin-inline: auto; }
+
+h1 { font-size: 45px; line-height: 1.15; font-weight: 600; margin: 1rem auto; color: var(--heading); }
+h2 { font-size: 45px; line-height: 1.2; font-weight: 400; margin: 1.5rem 0 .75rem; color: var(--heading); }
+h3 { font-size: 21px; font-weight: 600; margin: 0 0 .25rem; color: var(--heading); }
+p { margin: 0 0 1rem; }
+
+.hero, .gravstell, .kontakt { text-align: center; }
+.ornament { display: block; margin: 0 auto 1rem; }
+
+.tjenester {
+  position: relative;
+  background: var(--bg-alt);
+  padding-bottom: 6rem;
+}
+.tjenester::after {
+  content: "";
+  position: absolute;
+  left: -10%; right: -10%; bottom: -2.5rem;
+  height: 5rem;
+  background: var(--bg);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  opacity: .6;
+}
+.tjenester .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  max-width: 60rem;
+  margin: 0 auto 2rem;
+}
+.tjenester .row-reverse { justify-content: space-between; }
+.tjenester .deco { width: 40%; max-width: 330px; flex: none; }
+.tjenester .row-reverse .deco { width: 38%; max-width: 300px; }
+.tjenester .list { flex: 1; }
+.tjenester h2 { margin-top: 0; }
+.tjenester ul { list-style: none; padding: 0; margin: 0; }
+.tjenester li { margin: 0; }
+.tjenester li::before { content: "• "; font-size: .7em; vertical-align: 2px; }
+
+.seasons { text-align: left; }
+.seasons dt { font-weight: 600; color: var(--heading); }
+.seasons dd { margin: 0 0 .75rem; }
+
+.packages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  max-width: 56rem;
+  margin: 2rem auto;
+}
+.packages article { background: var(--bg-alt); padding: 1.25rem; text-align: center; }
+.packages p { margin: 0 0 .5rem; }
+.price { font-weight: 600; font-size: 22px; color: var(--heading); }
+
+.kontakt { background: var(--bg-alt); }
+
+@media (max-width: 800px) {
+  body { font-size: 19px; }
+  h1 { font-size: 34px; }
+  .tjenester .row, .tjenester .row-reverse { flex-direction: column; gap: 1.5rem; }
+  .tjenester .row-reverse { flex-direction: column-reverse; }
+  .tjenester .deco, .tjenester .row-reverse .deco { width: 60%; }
+}
